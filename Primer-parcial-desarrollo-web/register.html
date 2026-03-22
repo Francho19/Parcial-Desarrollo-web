@@ -17,20 +17,20 @@
             <form class="form">
                  <div class="form__field">
                     <label class="form__label" for="name">Nombres</label>
-                    <input class="form__input" type="text" id="name" placeholder="EJ: Pepito perez"/>
+                    <input class="form__input" type="text" id="name" placeholder="EJ: Pepito perez" required/>
                 </div>
                 <div class="form__field">
                     <label class="form__label" for="email">Correo electronico</label>
-                    <input class="form__input" type="email" id="email" placeholder="User@example.com"/>
+                    <input class="form__input" type="email" id="email" placeholder="User@example.com" required/>
                 </div>
                 <div class="form__field form__field--password">
                     <label class="form__label" for="password">Contraseña</label>
-                    <input class="form__input" type ="password" id="password" placeholder="⁕⁕⁕⁕⁕⁕" />
+                    <input class="form__input" type ="password" id="password" placeholder="⁕⁕⁕⁕⁕⁕" required autocomplete="off"/>
                     <span class="form__icons"><i class="fa-solid fa-eye form__icon"></i></span>
                 </div>
                  <div class="form__field form__field--password">
                     <label class="form__label" for="repeat_password">Repetir contraseña</label>
-                    <input class="form__input" type ="password" id="repeat_password" placeholder="⁕⁕⁕⁕⁕⁕" />
+                    <input class="form__input" type ="password" id="repeat_password" placeholder="⁕⁕⁕⁕⁕⁕" required autocomplete="off"/>
                     <span class="form__icons"><i class="fa-solid fa-eye form__icon"></i></span>
                 </div>
                 <button class="form__button" type="submit">Iniciar sesión</button>
@@ -42,30 +42,6 @@
         </section>
     </main>
     <script src="/Primer-parcial-desarrollo-web/plugins/js/all.min.js"></script>
-    <script>
-        document.querySelectorAll('.form__icons').forEach(element => {
-           
-            element.addEventListener('click', () => {
-              const field = element.closest('.form__field--password');
-              const input = field.querySelector('.form__input');
-              const icon = field.querySelector('.form__icon');
-
-              if (input) {
-                if (input.type === 'password') {
-                    input.type ='text';
-                    icon.classList.remove('fa-eye');
-                    icon.classList.add('fa-eye-slash')
-                } else {
-                    input.type = 'password'
-                    icon.classList.remove('fa-eye-slash')
-                    icon.classList.add('fa-eye');
-                }
-              }
-              
-                
-            })
-            
-        });
-    </script>
+    <script src="/Primer-parcial-desarrollo-web/js/main.js"></script>
 </body>
 </html> 
