@@ -37,10 +37,35 @@
             </form>
             <nav class="login__nav">
                  <a class="login__link" href="/Primer-parcial-desarrollo-web/index.html">¿Ya tienes una cuenta? <span class="login__link--yellow">Acceder</span></a>
-                 <a class="login__link" href="/forgot.html">¿Has olvidado la contraseña? <span class="login__link--yellow">restablecer</span></a>
+                 <a class="login__link" href="/Primer-parcial-desarrollo-web/forgot-password.html">¿Has olvidado la contraseña? <span class="login__link--yellow">restablecer</span></a>
                 </nav>
         </section>
     </main>
     <script src="/Primer-parcial-desarrollo-web/plugins/js/all.min.js"></script>
+    <script>
+        document.querySelectorAll('.form__icons').forEach(element => {
+           
+            element.addEventListener('click', () => {
+              const field = element.closest('.form__field--password');
+              const input = field.querySelector('.form__input');
+              const icon = field.querySelector('.form__icon');
+
+              if (input) {
+                if (input.type === 'password') {
+                    input.type ='text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash')
+                } else {
+                    input.type = 'password'
+                    icon.classList.remove('fa-eye-slash')
+                    icon.classList.add('fa-eye');
+                }
+              }
+              
+                
+            })
+            
+        });
+    </script>
 </body>
 </html> 
