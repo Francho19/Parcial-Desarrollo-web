@@ -1,0 +1,13 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial;
+}
+
+form {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+}
