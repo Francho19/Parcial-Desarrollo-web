@@ -1,18 +1,36 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/Primer-parcial-desarrollo-web/css/styles.css">
-    <title>Inicio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>techStore</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
+ 
 <div id="header"></div>
-
-<h1 style="color:white; text-align:center;">Inicio</h1>
-
+ 
+<div class="layout">
+    <div id="sidebar"></div>
+    <main id="contenido" class="productos-grid"></main>
+</div>
+ 
 <div id="footer"></div>
-
-<script src="/Primer-parcial-desarrollo-web/js/main.js"></script>
+ 
+<!-- TEMPLATE -->
+<template id="productTemplate">
+  <div class="producto">
+    <img class="imagen" alt="Producto">
+    <div class="producto__info">
+        <h3 class="nombre"></h3>
+        <p class="descripcion"></p>
+        <p class="precio"></p>
+    </div>
+  </div>
+</template>
+ 
+<script src="js/main.js"></script>
 </body>
 </html>
+ 

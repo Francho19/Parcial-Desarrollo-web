@@ -1,0 +1,27 @@
+
+[
+  {
+    "nombre": "Laptop Gamer",
+    "precio": 3500000,
+    "descripcion": "Alta potencia para gaming y diseño",
+    "imagen": "https://placehold.co/300x200/1a1a1a/ffd700?text=Laptop+Gamer"
+  },
+  {
+    "nombre": "Smartphone",
+    "precio": 2000000,
+    "descripcion": "Última generación, cámara pro",
+    "imagen": "https://placehold.co/300x200/1a1a1a/ffd700?text=Smartphone"
+  },
+  {
+    "nombre": "Audífonos BT",
+    "precio": 150000,
+    "descripcion": "Bluetooth con cancelación de ruido",
+    "imagen": "https://placehold.co/300x200/1a1a1a/ffd700?text=Audifonos"
+  },
+  {
+    "nombre": "Monitor 4K",
+    "precio": 1800000,
+    "descripcion": "144Hz, ideal para trabajo y juego",
+    "imagen": "https://placehold.co/300x200/1a1a1a/ffd700?text=Monitor+4K"
+  }
+]
