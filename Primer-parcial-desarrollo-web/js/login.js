@@ -11,9 +11,36 @@ document.addEventListener("DOMContentLoaded", () => {
                 btn.textContent = '🙈';
             } else {
                 input.type = 'password';
-                btn.textContent = '👀';
+                btn.textContent = '👁';
             }
         });
+
+    });
+
+    const form = document.querySelector('.form');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const emailInput = document.querySelector('input[type="email"], input[type="text"]');
+        const passwordInput = document.querySelector('input[type="password"]');
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        if (email === "user" && password === "admin") {
+
+            alert("Bienvenido ");
+
+            form.reset();
+
+        } else {
+
+            alert("Credenciales incorrectas ❌");
+
+            form.reset();
+
+        }
 
     });
 
