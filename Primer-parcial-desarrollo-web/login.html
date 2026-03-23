@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,74 +7,38 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<<<<<<< HEAD
- 
-<div class="login">
-  <div class="login__content">
- 
-    <h2 class="login__title">techStore 🔐</h2>
- 
-    <div id="error-msg" class="form__error" style="display:none;"></div>
- 
-    <div class="form__field">
-      <label class="form__label" for="usuario">Usuario</label>
-      <input type="text" id="usuario" class="form__input" autocomplete="username">
-    </div>
- 
-    <div class="form__field form__field--password">
-      <label class="form__label" for="password">Contraseña</label>
-      <input type="password" id="password" class="form__input" autocomplete="current-password">
-      <span class="form__icons" role="button" aria-label="Mostrar contraseña">👀</span>
-    </div>
- 
-    <label class="form__remember">
-      <input type="checkbox" id="recordar"> Recordar sesión
-    </label>
- 
-    <button class="form__button" id="btnLogin">Ingresar</button>
- 
-    <div class="form__forgot">
-      <a href="#">¿Olvidaste tu contraseña?</a>
-    </div>
- 
-  </div>
-</div>
- 
-<script src="js/login.js"></script>
-=======
 
-    <div id="header"></div>
+<main class="login">
+    <section class="login__content">
 
-    <main class="login">
-        <section class="login__content">
-            <h1 class="login__title">Iniciar sesión</h1>
+        <h1 class="login__title">Iniciar sesión</h1>
 
-            <form class="form">
-                <div class="form__field">
-                    <label class="form__label">Correo</label>
-                    <input class="form__input" type="text" placeholder="User" required>
-                </div>
+        <form class="form">
 
-                <div class="form__field form__field--password">
-                    <label class="form__label">Contraseña </label>
-                    <input class="form__input" type="password" placeholder="••••••" required>
+            <div class="form__field">
+                <label class="form__label">Usuario</label>
+                <input class="form__input" type="text" id="usuario" placeholder="user" required>
+            </div>
 
-                    <span class="form__icons">👀</span>
+            <div class="form__field form__field--password">
+                <label class="form__label">Contraseña</label>
+                <input class="form__input" type="password" id="password" placeholder="••••••" required>
 
-                    <small class="form__hint">
+                <span class="form__icons">👀</span>
+
+                <small class="form__hint">
                     Usuario: user | Contraseña: admin
-                    </small>
-                </div>
+                </small>
+            </div>
 
-                <button class="form__button">Entrar</button>
-            </form>
-        </section>
-    </main>
+            <button class="form__button" id="btnLogin">Entrar</button>
 
-    <div id="footer"></div>
+        </form>
 
-    <script src="/Primer-parcial-desarrollo-web/js/main.js"></script>
-    <script src="/Primer-parcial-desarrollo-web/js/login.js"></script>
->>>>>>> aff5e542134e8f36a17827171e72b72fab3c9c8f
+    </section>
+</main>
+
+<script src="js/login.js"></script>
+
 </body>
 </html>
