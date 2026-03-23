@@ -1,7 +1,9 @@
+// 🔒 PROTECCIÓN LOGIN
 if (!sessionStorage.getItem("loggedIn") && !localStorage.getItem("loggedIn")) {
     window.location.href = "login.html";
 }
 
+// 🔹 Cargar componentes
 const loadComponent = async (id, file) => {
     try {
         const res = await fetch(`./components/${file}`);
@@ -51,31 +53,31 @@ document.addEventListener("DOMContentLoaded", async () => {
             img.alt = p.nombre;
 
             img.onerror = () => {
-                img.src = "https://placehold.co/300x200/1a1a1a/ffd700?text=" + encodeURIComponent(p.nombre);
+                img.src = "https://placehold.co/300x200";
             };
 
             clone.querySelector(".btn-carrito").addEventListener("click", () => {
 
                 carrito.push(p);
-
                 localStorage.setItem("carrito", JSON.stringify(carrito));
 
                 alert(p.nombre + " agregado 🛒");
 
-                mostrarCarrito(); 
+                mostrarCarrito();
             });
 
             contenedor.appendChild(clone);
         });
+
         mostrarCarrito();
 
     } catch (err) {
         console.error("Error cargando productos:", err);
-        document.getElementById("contenido").innerHTML =
-            '<p class="error-msg">⚠️ No se pudieron cargar los productos.</p>';
     }
 });
 
+
+// 🛒 MOSTRAR CARRITO
 function mostrarCarrito() {
     const contenedor = document.getElementById("carrito");
 
@@ -98,20 +100,66 @@ function mostrarCarrito() {
     contenedor.innerHTML += `<h3>Total: $${total}</h3>`;
 
     contenedor.innerHTML += `
-        <button onclick="vaciarCarrito()" style="margin-top:10px;">
-            Vaciar carrito 🗑️
+        <button onclick="vaciarCarrito()">Vaciar carrito 🗑️</button>
+        <button onclick="mostrarRecibo()" style="margin-left:10px;">
+            🧾 Ver recibo
         </button>
     `;
 }
 
+
+// 🗑️ VACIAR
 function vaciarCarrito() {
     localStorage.removeItem("carrito");
     mostrarCarrito();
+    document.getElementById("recibo").innerHTML = "";
 }
+
+
+// 🔓 LOGOUT
 window.logout = function () {
     sessionStorage.removeItem("loggedIn");
     localStorage.removeItem("loggedIn");
-    localStorage.removeItem("carrito"); 
-
+    localStorage.removeItem("carrito");
     window.location.href = "login.html";
 };
+
+
+// 🧾 RECIBO EN PANTALLA
+function mostrarRecibo() {
+
+    const contenedor = document.getElementById("recibo");
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    if (!contenedor) return;
+
+    if (carrito.length === 0) {
+        contenedor.innerHTML = "<p>El carrito está vacío 🛒</p>";
+        return;
+    }
+
+    let subtotal = 0;
+
+    let html = `
+        <h2>🧾 RECIBO</h2>
+        <p><strong>Fecha:</strong> ${new Date().toLocaleString()}</p>
+        <hr>
+    `;
+
+    carrito.forEach(p => {
+        subtotal += p.precio;
+        html += `<p>${p.nombre} - $${p.precio}</p>`;
+    });
+
+    const iva = subtotal * 0.19;
+    const total = subtotal + iva;
+
+    html += `
+        <hr>
+        <p>Subtotal: $${subtotal}</p>
+        <p>IVA (19%): $${iva.toFixed(0)}</p>
+        <h3>Total: $${total.toFixed(0)}</h3>
+    `;
+
+    contenedor.innerHTML = html;
+}
