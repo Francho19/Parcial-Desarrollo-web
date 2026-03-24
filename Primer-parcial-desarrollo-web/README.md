@@ -95,10 +95,10 @@ login.html
 
 ## Estado del proyecto
 
-✔ Funcional  
-✔ Cumple con la estructura solicitada  
-✔ Sin base de datos (simulación con storage)  
-✔ Proyecto académico terminado  
+- Funcional  
+- Cumple con la estructura solicitada  
+- Sin base de datos (simulación con storage)  
+- Proyecto académico terminado  
 
 Proyecto realizado por:
 
