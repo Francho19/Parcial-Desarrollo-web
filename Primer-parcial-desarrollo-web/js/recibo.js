@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // 🔒 bloquear si no ha iniciado sesión
     if (localStorage.getItem("login") !== "true") {
         window.location.href = "login.html";
         return;
@@ -13,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const generarRecibo = () => {
 
-    // 🔹 productos de ejemplo (puedes cambiarlos)
     const productos = [
         { nombre: "Camisa", precio: 50000 },
         { nombre: "Pantalón", precio: 80000 },
@@ -53,6 +51,5 @@ TOTAL: $${total.toFixed(0)}
 ==========================
 `;
 
-    // 🔥 mostrar en pantalla
     document.getElementById("recibo").innerText = recibo;
 };

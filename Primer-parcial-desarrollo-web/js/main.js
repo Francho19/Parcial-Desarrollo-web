@@ -1,9 +1,7 @@
-// 🔒 PROTECCIÓN LOGIN
 if (!sessionStorage.getItem("loggedIn") && !localStorage.getItem("loggedIn")) {
     window.location.href = "login.html";
 }
 
-// 🔹 Cargar componentes
 const loadComponent = async (id, file) => {
     try {
         const res = await fetch(`./components/${file}`);
@@ -77,7 +75,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 
-// 🛒 MOSTRAR CARRITO
 function mostrarCarrito() {
     const contenedor = document.getElementById("carrito");
 
@@ -108,7 +105,6 @@ function mostrarCarrito() {
 }
 
 
-// 🗑️ VACIAR
 function vaciarCarrito() {
     localStorage.removeItem("carrito");
     mostrarCarrito();
@@ -116,7 +112,6 @@ function vaciarCarrito() {
 }
 
 
-// 🔓 LOGOUT
 window.logout = function () {
     sessionStorage.removeItem("loggedIn");
     localStorage.removeItem("loggedIn");
@@ -125,7 +120,6 @@ window.logout = function () {
 };
 
 
-// 🧾 RECIBO EN PANTALLA
 function mostrarRecibo() {
 
     const contenedor = document.getElementById("recibo");
