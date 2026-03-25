@@ -183,3 +183,4 @@ Agregar aquí el enlace del repositorio en GitHub.
 ## Conclusión
 
 El proyecto integra conceptos fundamentales del desarrollo web como renderización dinámica, manejo de datos externos, uso de componentes reutilizables y trabajo colaborativo mediante control de versiones. Se logra una aplicación funcional, organizada y estructurada.
+Prueba de Pull Request
