@@ -173,7 +173,7 @@ PRIMER-PARCIAL-DESARROLLO-WEB/
 
 ## Repositorio
 
-Agregar aquí el enlace del repositorio en GitHub.
+https://github.com/Francho19/Parcial-Desarrollo-web.git
 
 ---
 
