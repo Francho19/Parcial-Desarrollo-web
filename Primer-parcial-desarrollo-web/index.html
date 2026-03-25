@@ -8,19 +8,25 @@
 </head>
 <body>
 
-    <div id="header"></div>
+    <!-- HEADER -->
+    <app-header></app-header>
 
+    <!-- LAYOUT -->
     <div class="layout">
-        <div id="sidebar"></div>
+        <app-sidebar></app-sidebar>
         <main id="contenido" class="productos-grid"></main>
     </div>
 
+    <!-- CARRITO -->
     <div id="carrito" style="color:white; padding:2rem;"></div>
 
+    <!-- RECIBO -->
     <div id="recibo" style="color:white; padding:20px;"></div>
 
-    <div id="footer"></div>
+    <!-- FOOTER -->
+    <app-footer></app-footer>
 
+    <!-- TEMPLATE -->
     <template id="productTemplate">
         <div class="producto">
             <img class="imagen" alt="Producto">
@@ -33,6 +39,7 @@
         </div>
     </template>
 
+    <script src="js/components.js"></script>
     <script src="js/main.js"></script>
 
 </body>
