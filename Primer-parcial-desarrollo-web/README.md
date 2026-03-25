@@ -11,8 +11,8 @@ Este proyecto fue desarrollado en equipo utilizando GitHub.
 
 ### Integrantes
 
-* Frank
-* (Nombre del compañero)
+* Frank José Miranda Beleño - 192526
+* Javier Andrés Martínez Martínez - 192528
 
 ---
 
@@ -33,7 +33,7 @@ Este proyecto fue desarrollado en equipo utilizando GitHub.
 
 Se utilizan fragmentos del DOM al trabajar con plantillas, permitiendo manipular contenido antes de insertarlo en la página.
 
-```js id="a1"
+```js
 const clone = template.content.cloneNode(true);
 ```
 
@@ -43,7 +43,7 @@ const clone = template.content.cloneNode(true);
 
 Se utilizó la etiqueta `<template>` para definir la estructura de los productos, permitiendo su reutilización y renderización dinámica.
 
-```html id="a2"
+```html
 <template id="productTemplate">
 ```
 
@@ -51,11 +51,9 @@ Se utilizó la etiqueta `<template>` para definir la estructura de los productos
 
 ### Web Components
 
-Se implementaron componentes personalizados mediante la creación de clases que extienden de `HTMLElement`, utilizando Shadow DOM para encapsular estilos y estructura.
+Se implementaron componentes personalizados mediante clases que extienden de `HTMLElement`, usando Shadow DOM.
 
-Ejemplo:
-
-```js id="a3"
+```js
 class AppHeader extends HTMLElement {
     constructor() {
         super();
@@ -70,33 +68,31 @@ customElements.define("app-header", AppHeader);
 
 ## Implementación del login
 
-El formulario de inicio de sesión se desarrolló con validación en JavaScript, sin uso de base de datos.
+El formulario de inicio de sesión se desarrolló con validación en JavaScript.
 
-Credenciales:
+**Credenciales:**
 
 * Usuario: user
 * Contraseña: admin
 
-Validación:
-
-```js id="a4"
+```js
 if (usuario === "user" && password === "admin")
 ```
 
-Se utilizó `sessionStorage` para mantener la sesión activa y se restringe el acceso a la página principal si el usuario no ha iniciado sesión.
+Se utiliza `sessionStorage` para mantener la sesión activa y restringir acceso.
 
 ---
 
 ## Buenas prácticas aplicadas
 
-* Organización del proyecto en carpetas (`css`, `js`, `data`, `components`)
-* Separación de responsabilidades entre HTML, CSS y JavaScript
-* Uso de nombres descriptivos en variables y funciones
-* Manejo de errores mediante estructuras try/catch
-* Uso de fetch para cargar datos externos
+* Organización del proyecto en carpetas
+* Separación de HTML, CSS y JavaScript
+* Uso de nombres descriptivos
+* Manejo de errores con try/catch
+* Uso de fetch
 * Uso de localStorage y sessionStorage
-* Código modular y reutilizable
-* Implementación de Web Components
+* Código modular
+* Web Components
 
 ---
 
@@ -110,13 +106,19 @@ Se utilizó `sessionStorage` para mantener la sesión activa y se restringe el a
 
 ### Ramas (Branches)
 
-![Branches](docs/img/branches.png)
+![Branches](docs/img/branch.png)
 
 ---
 
 ### Pull Requests
 
 ![Pull Requests](docs/img/pr.png)
+
+---
+
+### PR Merged
+
+![PR Merged](docs/img/pr-merged.png)
 
 ---
 
@@ -128,7 +130,7 @@ Se utilizó `sessionStorage` para mantener la sesión activa y se restringe el a
 
 ## Estructura del proyecto
 
-```id="a5"
+```
 PRIMER-PARCIAL-DESARROLLO-WEB/
 │
 ├── components/
@@ -142,7 +144,19 @@ PRIMER-PARCIAL-DESARROLLO-WEB/
 ├── data/
 │   └── productos.json
 │
+├── docs/
+│   └── img/
+│       ├── branch.png
+│       ├── commits.png
+│       ├── contributors.png
+│       ├── pr-merged.png
+│       └── pr.png
+│
 ├── img/
+│   ├── audifonos.jpg
+│   ├── celular.jpg
+│   ├── laptop.jpg
+│   └── monitor.jpg
 │
 ├── js/
 │   ├── components.js
@@ -157,23 +171,6 @@ PRIMER-PARCIAL-DESARROLLO-WEB/
 
 ---
 
-## Ubicación de evidencias
-
-Se debe crear la siguiente ruta dentro del proyecto para almacenar las capturas:
-
-```id="a6"
-docs/img/
-```
-
-Archivos requeridos:
-
-* commits.png
-* branches.png
-* pr.png
-* contributors.png
-
----
-
 ## Repositorio
 
 Agregar aquí el enlace del repositorio en GitHub.
@@ -182,5 +179,4 @@ Agregar aquí el enlace del repositorio en GitHub.
 
 ## Conclusión
 
-El proyecto integra conceptos fundamentales del desarrollo web como renderización dinámica, manejo de datos externos, uso de componentes reutilizables y trabajo colaborativo mediante control de versiones. Se logra una aplicación funcional, organizada y estructurada.
-Prueba de Pull Request
+El proyecto integra conceptos fundamentales del desarrollo web como renderización dinámica, manejo de datos externos, uso de componentes reutilizables y trabajo colaborativo mediante Git. Se obtiene una aplicación funcional, organizada y bien estructurada.
