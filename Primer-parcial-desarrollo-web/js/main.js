@@ -1,29 +1,12 @@
-if (!sessionStorage.getItem("loggedIn") && !localStorage.getItem("loggedIn")) {
+// PROTEGER RUTA
+if (!sessionStorage.getItem("loggedIn")) {
     window.location.href = "login.html";
 }
 
-const loadComponent = async (id, file) => {
-    try {
-        const res = await fetch(`./components/${file}`);
-        if (!res.ok) throw new Error(`No se pudo cargar ${file}`);
-        const html = await res.text();
-        document.getElementById(id).innerHTML = html;
-    } catch (err) {
-        console.error(err);
-    }
-};
-
 document.addEventListener("DOMContentLoaded", async () => {
-
-    await Promise.all([
-        loadComponent("header", "header.html"),
-        loadComponent("sidebar", "sidebar.html"),
-        loadComponent("footer", "footer.html"),
-    ]);
 
     try {
         const res = await fetch("./data/productos.json");
-        if (!res.ok) throw new Error("No se pudo cargar productos.json");
         const productos = await res.json();
 
         const template = document.getElementById("productTemplate");
@@ -48,11 +31,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const img = clone.querySelector(".imagen");
             img.src = p.imagen;
-            img.alt = p.nombre;
-
-            img.onerror = () => {
-                img.src = "https://placehold.co/300x200";
-            };
 
             clone.querySelector(".btn-carrito").addEventListener("click", () => {
 
@@ -70,37 +48,29 @@ document.addEventListener("DOMContentLoaded", async () => {
         mostrarCarrito();
 
     } catch (err) {
-        console.error("Error cargando productos:", err);
+        console.error(err);
     }
 });
 
 
+// CARRITO
 function mostrarCarrito() {
     const contenedor = document.getElementById("carrito");
-
-    if (!contenedor) return;
-
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
     let total = 0;
-
     contenedor.innerHTML = "<h2>🛒 Carrito</h2>";
 
     carrito.forEach(p => {
         total += p.precio;
-
-        contenedor.innerHTML += `
-            <p>${p.nombre} - $${p.precio}</p>
-        `;
+        contenedor.innerHTML += `<p>${p.nombre} - $${p.precio}</p>`;
     });
 
     contenedor.innerHTML += `<h3>Total: $${total}</h3>`;
 
     contenedor.innerHTML += `
-        <button onclick="vaciarCarrito()">Vaciar carrito 🗑️</button>
-        <button onclick="mostrarRecibo()" style="margin-left:10px;">
-            🧾 Ver recibo
-        </button>
+        <button onclick="vaciarCarrito()">Vaciar 🗑️</button>
+        <button onclick="mostrarRecibo()">🧾 Recibo</button>
     `;
 }
 
@@ -112,23 +82,14 @@ function vaciarCarrito() {
 }
 
 
-window.logout = function () {
-    sessionStorage.removeItem("loggedIn");
-    localStorage.removeItem("loggedIn");
-    localStorage.removeItem("carrito");
-    window.location.href = "login.html";
-};
-
-
+// RECIBO
 function mostrarRecibo() {
 
     const contenedor = document.getElementById("recibo");
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    if (!contenedor) return;
-
     if (carrito.length === 0) {
-        contenedor.innerHTML = "<p>El carrito está vacío 🛒</p>";
+        contenedor.innerHTML = "<p>Carrito vacío</p>";
         return;
     }
 
@@ -136,7 +97,7 @@ function mostrarRecibo() {
 
     let html = `
         <h2>🧾 RECIBO</h2>
-        <p><strong>Fecha:</strong> ${new Date().toLocaleString()}</p>
+        <p>${new Date().toLocaleString()}</p>
         <hr>
     `;
 
@@ -151,7 +112,7 @@ function mostrarRecibo() {
     html += `
         <hr>
         <p>Subtotal: $${subtotal}</p>
-        <p>IVA (19%): $${iva.toFixed(0)}</p>
+        <p>IVA: $${iva.toFixed(0)}</p>
         <h3>Total: $${total.toFixed(0)}</h3>
     `;
 
